@@ -1,0 +1,48 @@
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 2rem; // ter espaçamento nas laterais caso largura < 1220px
+}
+
+.posts {
+  max-width: 720px;
+  margin: 5rem auto 0; // topo: 5rem, laterais: auto, baixo: 0
+
+  a {
+    // por padrão os links tem display inline
+    display: block;
+
+    & + a {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--gray-700);
+    }
+
+    time {
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      color: var(--gray-300);
+    }
+
+    strong {
+      // por padrão strong tem display inline
+      display: inline-block;
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      line-height: 2rem;
+
+      transition: color 0.2s;
+    }
+
+    p {
+      color: var(--gray-300);
+      margin-top: 0.5rem;
+      line-height: 1.625rem; //26px
+    }
+
+    &:hover strong {
+      color: var(--yellow-500);
+    }
+  }
+}

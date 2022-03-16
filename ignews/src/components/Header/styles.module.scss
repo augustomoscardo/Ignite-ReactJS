@@ -1,0 +1,60 @@
+.headerContainer {
+  height: 5rem;
+  border-bottom: 1px solid var(--gray-800);
+}
+
+.headContent {
+  max-width: 1120px;
+  height: 5rem;
+  margin: 0 auto; //alinhar ao centro horizontalmente
+  padding: 0 2rem; // caso usuário reduza a tela pra menos de 1120px fica um espaçamento nas laterais.
+
+  display: flex;
+  align-items: center;
+
+  nav {
+    margin-left: 5rem;
+    height: 5rem; /* para ocupar toda a altura, pois quando uma página fica selecionada irá ficar uma borda em baixo.
+   e o nav não ocupar toda essa altura dá muito trabalho posicionar essa borda em baixo. */
+
+    a {
+      display: inline-block;
+      position: relative; // pois a borda em baixo possui position absolute. A borda será um elemento.
+      padding: 0 0.5rem;
+      height: 5rem;
+      line-height: 5rem; // como ocupa a altura toda, com line height no msm valor o texto fica centralizado
+      color: var(--gray-300);
+
+      transition: color 0.2s;
+
+      & + a {
+        margin-left: 2rem;
+      }
+
+      &:hover {
+        color: var(--white);
+      }
+
+      &.active {
+        color: var(--white);
+        font-weight: bold;
+      }
+
+      &.active::after {
+        //nesse pseudo é possível estilizar o que vem após o conteúdo que já existe no elemento
+        content: ""; //permite inserir algum conteúdo. Mas é importante ter aqui mesmo que seja vazio.
+        height: 3px;
+        border-radius: 3px 3px 0 0; // colocando a curvatura da borda somente nos lados de cima
+        width: 100%;
+        position: absolute;
+        bottom: 1px;
+        left: 0;
+        background: var(--yellow-500);
+      }
+    }
+  }
+
+  button {
+    margin-left: auto; //quando usa margin-left auto ele dá o máximo de margin que puder
+  }
+}
